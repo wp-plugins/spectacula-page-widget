@@ -36,7 +36,7 @@ If you create a translation and you'd like your language file included with the 
 3.  Next we have an option to use an excerpt rather than the full content.
     By default Wordpress won't let you create an excerpt for pages so one will be generated unless you've used another plugin to create an excerpt in which case that'll be used.
 4.  Hide the page from the normal Wordpress list of pages.
-    This lets you to remove links to that page from other parts of Wordpress that use the wp_list_pages() call.
+    This lets you to remove links to that page from other parts of Wordpress that use the wp\_list\_pages() call.
     If you have two of these widgets both calling the same page then hiding the page in one will hide it in all.
 5.  Finally hit save.
 
