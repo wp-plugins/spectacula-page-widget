@@ -46,3 +46,15 @@ If you create a translation and you'd like your language file included with the 
 *   Initial public release
 *   Added a more user friendly interface on the widget
 *   Added the option to hide the widget from wp_list_pages
+
+
+== Frequently Asked Questions ==
+= Why not just use a text widget =
+Because using pages gives you the visual editor, revisions, short codes, easier management and numerous other benefits.
+
+== Screenshots ==
+
+== Upgrade Notice ==
+
+= 1.0.0 =
+If you have an older version of this I'd recommend you upgrade.
