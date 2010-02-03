@@ -3,11 +3,12 @@
  Plugin Name: Spectacu.la Page Widget
  Plugin URI: http://spectacu.la
  Description: Show the content of a selected page in a widget. Gives you control over title behaviour and the page's visibility elsewhere in Wordpress.
- Version: 1.0.0
+ Version: 1.0.1
  Author: James R Whitehead of Spectacu.la
  Author URI: http://www.interconnectit.com
 
  Release notes: 1.0.0 Initial release
+				1.0.1 Added an option to include a clear block at the end of the content. Helpful when you have a page with some floated elements in it and quite short content.
 */
 
 define ('SPEC_PAGEWIDGET_VER', 2.8);
@@ -17,7 +18,7 @@ define ('SPEC_PAGEWIDGET_OPT', 'specpagewidgets');
 if (!class_exists('spec_page_widget')) {
 	class spec_page_widget extends WP_Widget {
 
-		var $defaults = array('title_toggle' => true, 'link_toggle' => true, 'hide_toggle' => false, 'excerpt_toggle' => false, 'page_id' => 0, 'title' => '' );
+		var $defaults = array('title_toggle' => true, 'link_toggle' => true, 'hide_toggle' => false, 'excerpt_toggle' => false, 'page_id' => 0, 'title' => '', 'clear_toggle' => false );
 
 		/*
 		 constructor.
@@ -55,6 +56,10 @@ if (!class_exists('spec_page_widget')) {
 					}
 				}
 
+				if ($clear_toggle) {
+					$clear = '<div style="clear:both;height:0;overflow:hidden;visibility:hidden"></div>';
+				}
+
 				if (!post_password_required($page_id)) {
 					if ($excerpt_toggle) {
 						$content = $page->post_excerpt ? apply_filters('the_excerpt', $page->post_excerpt) : $this->excerptify($page->post_content);
@@ -68,7 +73,7 @@ if (!class_exists('spec_page_widget')) {
 				echo $before_widget;
 
 				echo $title		? $before_title . $title . $after_title : '';
-				echo $content;
+				echo $content . $clear;
 
 				echo $after_widget;
 			}
@@ -85,6 +90,7 @@ if (!class_exists('spec_page_widget')) {
 			$output['excerpt_toggle'] = intval($new_instance['excerpt_toggle']) == 1 ? true : false;
 			$output['page_id'] = in_array(intval($new_instance['page_id']), $this->page_ids) ? intval($new_instance['page_id']) : 0;
 			$output['alt_title'] =  $new_instance['alt_title'] != '' ? $new_instance['alt_title'] : '';
+			$output['clear_toggle'] = intval($new_instance['clear_toggle']) == 1 ? true : false;
 
 			return $output;
 		}
@@ -145,6 +151,11 @@ if (!class_exists('spec_page_widget')) {
 			<p>
 				<label for="<?php echo $this->get_field_id('excerpt_toggle'); ?>"><?php _e('Use excerpt rather than full content:', SPEC_PAGEWIDGET_DOM); ?></label>
 				<input type="checkbox"<?php echo $excerpt_toggle ? ' checked="checked"' : '' ; ?> id="<?php echo $this->get_field_id('excerpt_toggle'); ?>" name="<?php echo $this->get_field_name('excerpt_toggle'); ?>" value="1"/>
+			</p>
+
+			<p>
+				<label for="<?php echo $this->get_field_id('clear_toggle'); ?>"><?php _e('Add a clear block at the end of the content:', SPEC_PAGEWIDGET_DOM); ?></label>
+				<input type="checkbox"<?php echo $clear_toggle ? ' checked="checked"' : '' ; ?> id="<?php echo $this->get_field_id('clear_toggle'); ?>" name="<?php echo $this->get_field_name('clear_toggle'); ?>" value="1"/>
 			</p>
 
 			<hr/>

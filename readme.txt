@@ -3,8 +3,8 @@ Contributors: spectacula
 Donate link: http://spectacu.la/signup/signup.php
 Tags: widget, page, sidebar, plugin
 Requires at least: 2.8.0
-Tested up to: 2.8.5
-Stable tag: 1.0.0
+Tested up to: 2.9.1
+Stable tag: 1.0.1
 
 Widget that lets you output the content of a page in a any place that'll accept a widget and allows you to hide said page from wp_list_pages.
 
@@ -42,6 +42,9 @@ If you create a translation and you'd like your language file included with the 
 
 == Changelog ==
 
+= 1.0.1 =
+*	Added an option to include a clear block at the end of the content. Helpful when you have a page with some floated elements in it and quite short content.
+
 = 1.0.0 =
 *   Initial public release
 *   Added a more user friendly interface on the widget
@@ -55,6 +58,9 @@ Because using pages gives you the visual editor, revisions, short codes, easier 
 == Screenshots ==
 
 == Upgrade Notice ==
+
+= 1.0.1=
+If you're having problems with floated content overflowing other items then upgrade to this and tick the option to have the clear block on. Otherwise this change isn't critical.
 
 = 1.0.0 =
 If you have an older version of this I'd recommend you upgrade.

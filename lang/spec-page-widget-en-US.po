@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Page Displaying Widget\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-02 17:33-0000\n"
+"POT-Creation-Date: 2010-02-03 13:29-0000\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Interconnect IT <admin@interconnectit.com>\n"
 "Language-Team: Interconnect IT\n"
@@ -13,50 +13,54 @@ msgstr ""
 "X-Poedit-Country: UNITED KINGDOM\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: _e;__\n"
-"X-Poedit-Basepath: T:\\hosts\\wordpress\\wordpress.28\\wp-content\\plugins\n"
-"X-Poedit-SearchPath-0: spec-page-widget\n"
+"X-Poedit-Basepath: T:\\wordpress-repo\\spectacula-page-widget\n"
+"X-Poedit-SearchPath-0: trunk\n"
 
-#: spec-page-widget/spec-page-widget.php:29
+#: trunk/spec-page-widget.php:30
 msgid "Show the content of a selected page in a widget. Gives you control over title behaviour and the page's visibility elsewhere in Wordpress."
 msgstr "Show the content of a selected page in a widget. Gives you control over title behaviour and the page's visibility elsewhere in Wordpress."
 
-#: spec-page-widget/spec-page-widget.php:30
+#: trunk/spec-page-widget.php:31
 msgid "Spectacu.la Page Widget"
 msgstr "Spectacu.la Page Widget"
 
-#: spec-page-widget/spec-page-widget.php:65
+#: trunk/spec-page-widget.php:70
 msgid "Password protected page"
 msgstr "Password protected page"
 
-#: spec-page-widget/spec-page-widget.php:99
+#: trunk/spec-page-widget.php:105
 msgid "Select the page:"
 msgstr "Select the page:"
 
-#: spec-page-widget/spec-page-widget.php:101
+#: trunk/spec-page-widget.php:107
 msgid "None"
 msgstr "None"
 
-#: spec-page-widget/spec-page-widget.php:113
+#: trunk/spec-page-widget.php:119
 msgid "Show title:"
 msgstr "Show title:"
 
-#: spec-page-widget/spec-page-widget.php:119
+#: trunk/spec-page-widget.php:125
 msgid "Title should link to source page:"
 msgstr "Title should link to source page:"
 
-#: spec-page-widget/spec-page-widget.php:124
+#: trunk/spec-page-widget.php:130
 msgid "Use this text instead of the page title:"
 msgstr "Use this text instead of the page title:"
 
-#: spec-page-widget/spec-page-widget.php:146
+#: trunk/spec-page-widget.php:152
 msgid "Use excerpt rather than full content:"
 msgstr "Use excerpt rather than full content:"
 
-#: spec-page-widget/spec-page-widget.php:154
+#: trunk/spec-page-widget.php:157
+msgid "Add a clear block at the end of the content:"
+msgstr "Add a clear block at the end of the content:"
+
+#: trunk/spec-page-widget.php:165
 msgid "This page has been excluded using another other widget."
 msgstr "This page has been excluded using another other widget."
 
-#: spec-page-widget/spec-page-widget.php:157
+#: trunk/spec-page-widget.php:168
 msgid "Exclude page from wp_list_pages:"
 msgstr "Exclude page from wp_list_pages:"
 
