@@ -3,12 +3,13 @@
  Plugin Name: Spectacu.la Page Widget
  Plugin URI: http://spectacu.la
  Description: Show the content of a selected page in a widget. Gives you control over title behaviour and the page's visibility elsewhere in Wordpress.
- Version: 1.0.1
+ Version: 1.0.2
  Author: James R Whitehead of Spectacu.la
  Author URI: http://www.interconnectit.com
 
  Release notes: 1.0.0 Initial release
 				1.0.1 Added an option to include a clear block at the end of the content. Helpful when you have a page with some floated elements in it and quite short content.
+				1.0.2 Tidied up the widget display name in the widget admin page. Also got rid of the unneeded word "widget" from the widget.
 */
 
 define ('SPEC_PAGEWIDGET_VER', 2.8);
@@ -28,7 +29,7 @@ if (!class_exists('spec_page_widget')) {
 			load_plugin_textdomain(SPEC_PAGEWIDGET_DOM, $abs_rel_path);
 
 			$widget_ops = array('classname' => 'spec_page_widget', 'description' => __( 'Show the content of a selected page in a widget. Gives you control over title behaviour and the page\'s visibility elsewhere in Wordpress.', SPEC_PAGEWIDGET_DOM));
-			$this->WP_Widget(SPEC_PAGEWIDGET_OPT, __('Spectacu.la Page Widget', SPEC_PAGEWIDGET_DOM), $widget_ops, array('width' => 450));
+			$this->WP_Widget(SPEC_PAGEWIDGET_OPT, __('Spectacu.la Page', SPEC_PAGEWIDGET_DOM), $widget_ops, array('width' => 450));
 
 			$this->pages = get_pages();
 			$this->page_ids = array_map(create_function('$a', 'return $a->ID;'), $this->pages);
@@ -99,7 +100,11 @@ if (!class_exists('spec_page_widget')) {
 		function form($instance = array()) {
 			$instance = array_merge($this->defaults, (array)$instance);
 			extract($instance, EXTR_SKIP);
-			unset($disabled);?>
+			unset($disabled);
+
+			// Set up the display name for the widget admin page
+			$page = $page_id > 0 ? get_post($page_id) : null; ?>
+			<input id="display-title" type="hidden" value="<?php echo $alt_title != '' ? apply_filters('the_title', $alt_title, $page_id) : ($page_id > 0 ? apply_filters('the_title', $page->post_title, $page_id) : __('None', SPEC_ADVSEARCH_DOM));?>"/>
 
 			<p>
 				<label for="<?php echo $this->get_field_id('page_id'); ?>"><strong><?php _e('Select the page:', SPEC_PAGEWIDGET_DOM); ?></strong></label>
