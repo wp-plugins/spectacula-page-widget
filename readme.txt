@@ -42,6 +42,9 @@ If you create a translation and you'd like your language file included with the 
 
 == Changelog ==
 
+= 1.0.2 =
+*	Added an option to show the widget in the sidebar even if you're on the page selected to show in the widget. Made the widget title, as showing in the widget admin, a little more useful.
+
 = 1.0.1 =
 *	Added an option to include a clear block at the end of the content. Helpful when you have a page with some floated elements in it and quite short content.
 
@@ -58,6 +61,9 @@ Because using pages gives you the visual editor, revisions, short codes, easier 
 == Screenshots ==
 
 == Upgrade Notice ==
+
+= 1.0.1=
+Extra option added to show the widget even when viewing the page selected to show in the widget. Sorted out the widget title as shown in the sidebar admin.
 
 = 1.0.1=
 If you're having problems with floated content overflowing other items then upgrade to this and tick the option to have the clear block on. Otherwise this change isn't critical.

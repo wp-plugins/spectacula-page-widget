@@ -9,7 +9,7 @@
 
  Release notes: 1.0.0 Initial release
 				1.0.1 Added an option to include a clear block at the end of the content. Helpful when you have a page with some floated elements in it and quite short content.
-				1.0.2 Tidied up the widget display name in the widget admin page. Also got rid of the unneeded word "widget" from the widget.
+				1.0.2 Tidied up the widget display name in the widget admin page. Also got rid of the unneeded word "widget" from the widget. Added option to show the widget even when viewing the page that's set to show in the widget.
 */
 
 define ('SPEC_PAGEWIDGET_VER', 2.8);
@@ -19,7 +19,7 @@ define ('SPEC_PAGEWIDGET_OPT', 'specpagewidgets');
 if (!class_exists('spec_page_widget')) {
 	class spec_page_widget extends WP_Widget {
 
-		var $defaults = array('title_toggle' => true, 'link_toggle' => true, 'hide_toggle' => false, 'excerpt_toggle' => false, 'page_id' => 0, 'title' => '', 'clear_toggle' => false );
+		var $defaults = array('title_toggle' => true, 'link_toggle' => true, 'hide_toggle' => false, 'excerpt_toggle' => false, 'page_id' => 0, 'title' => '', 'clear_toggle' => false, 'self_show' => false);
 
 		/*
 		 constructor.
@@ -46,7 +46,7 @@ if (!class_exists('spec_page_widget')) {
 			extract((array)$instance, EXTR_SKIP);
 
 			// Check that the page chosen exists.
-			if (in_array($page_id, $this->page_ids) && $post->ID != $page_id){
+			if (in_array($page_id, $this->page_ids) && ($post->ID != $page_id && !$self_show)){
 				$page  = get_post($page_id);
 
 				if ($title_toggle) {
@@ -88,6 +88,7 @@ if (!class_exists('spec_page_widget')) {
 			$output['title_toggle'] = intval($new_instance['title_toggle']) == 1 ? true : false;
 			$output['link_toggle'] = intval($new_instance['link_toggle']) == 1 ? true : false;
 			$output['hide_toggle'] = intval($new_instance['hide_toggle']) == 1 ? true : false;
+			$output['self_show'] = intval($new_instance['self_show']) == 1 ? true : false;
 			$output['excerpt_toggle'] = intval($new_instance['excerpt_toggle']) == 1 ? true : false;
 			$output['page_id'] = in_array(intval($new_instance['page_id']), $this->page_ids) ? intval($new_instance['page_id']) : 0;
 			$output['alt_title'] =  $new_instance['alt_title'] != '' ? $new_instance['alt_title'] : '';
@@ -161,6 +162,11 @@ if (!class_exists('spec_page_widget')) {
 			<p>
 				<label for="<?php echo $this->get_field_id('clear_toggle'); ?>"><?php _e('Add a clear block at the end of the content:', SPEC_PAGEWIDGET_DOM); ?></label>
 				<input type="checkbox"<?php echo $clear_toggle ? ' checked="checked"' : '' ; ?> id="<?php echo $this->get_field_id('clear_toggle'); ?>" name="<?php echo $this->get_field_name('clear_toggle'); ?>" value="1"/>
+			</p>
+
+			<p>
+				<label for="<?php echo $this->get_field_id('self_show'); ?>"><?php _e('Show this widget if on the page that matched the ID set above:', SPEC_PAGEWIDGET_DOM); ?></label>
+				<input type="checkbox"<?php echo $self_show ? ' checked="checked"' : '' ; ?> id="<?php echo $this->get_field_id('self_show'); ?>" name="<?php echo $this->get_field_name('self_show'); ?>" value="1"/>
 			</p>
 
 			<hr/>
