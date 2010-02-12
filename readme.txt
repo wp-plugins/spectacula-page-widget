@@ -1,10 +1,10 @@
-=== Plugin Name ===
+﻿=== Plugin Name ===
 Contributors: spectacula
 Donate link: http://spectacu.la/signup/signup.php
 Tags: widget, page, sidebar, plugin
 Requires at least: 2.8.0
 Tested up to: 2.9.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 Widget that lets you output the content of a page in a any place that'll accept a widget and allows you to hide said page from wp_list_pages.
 
@@ -61,6 +61,9 @@ Because using pages gives you the visual editor, revisions, short codes, easier 
 == Screenshots ==
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Added an option to show the widget in the sidebar even if you're on the page selected to show in the widget. Made the widget title, as showing in the widget admin, a little more useful.
 
 = 1.0.1=
 Extra option added to show the widget even when viewing the page selected to show in the widget. Sorted out the widget title as shown in the sidebar admin.
