@@ -1,26 +1,32 @@
 ﻿=== Plugin Name ===
-Contributors: spectacula
-Donate link: http://spectacu.la/signup/signup.php
+Contributors: interconnectit, spectacula
+Donate link: https://spectacu.la/signup/signup.php
 Tags: widget, page, sidebar, plugin
 Requires at least: 2.8.0
-Tested up to: 2.9.1
-Stable tag: 1.0.2
+Tested up to: 2.9.2
+Stable tag: 1.0.3
 
-Widget that lets you output the content of a page in a any place that'll accept a widget and allows you to hide said page from wp_list_pages.
+Widget that lets you output the content of a page in any place that'll accept a widget and allows you to hide said page from navigation (wp_list_pages).
 
 == Description ==
 
-It’s often nice to be able to create a profile page or similar, and to display it in a sidebar.
-You get to use the visual editor, and you don’t necessarily need admin access. Similarly, you avoid the issue of having to work with the much more difficult text widget.
+With this page widget you can create a page in the normal WordPress editor and then drop it in any widget space - you can even embed shortcodes, videos and so on, all from the usual visual editor, rather than having to type HTML into a text widget.
 
-Downsides include that the theme may not have CSS styles properly set, so for example a captioned image may not display correctly.
-You should test this widget with your theme, across several browsers, before using it on a critical live site.
+And you can even control the widget to a significant degree, meaning it can be hidden and revealed as and when you require it.
+
+This makes for a much easier to use process and has proven hugely popular with our users for the creation of profiles, sidebar videos and more.
+
+And you no longer need admin access to be able to edit sidebar content belonging to you!
+
+In a few rare cases, with poorly coded CSS in themes you may run into problems, so you should test this widget with your theme, across several browsers, before using it on a critical live site.
 
 The widget will not show up on the page that is chosen to show in the widget. So if you click through to the page the widget will disappear from the sidebar.
 
 If you want to translate the widget interface the files need for that are held in a sub-folder called lang.
 Just copy the spec-page-widget-en-US.po file to match your language (spec-page-widget-xx-XX.po) then load it up in poedit and change what you need to change.
-If you create a translation and you'd like your language file included with the plugin contact us at [Spectacu.la](http://spectau.la/) and we'll see about adding it.
+
+If you create a translation and you'd like your language file included with the plugin contact us at [Spectacu.la](http://spectacu.la/) and we'll see about adding it.
+
 
 == Installation ==
 
@@ -43,6 +49,9 @@ If you create a translation and you'd like your language file included with the 
 == Changelog ==
 
 = 1.0.2 =
+*	Corrected links and improved description text.
+
+= 1.0.2 =
 *	Added an option to show the widget in the sidebar even if you're on the page selected to show in the widget. Made the widget title, as showing in the widget admin, a little more useful.
 
 = 1.0.1 =
@@ -55,21 +64,40 @@ If you create a translation and you'd like your language file included with the 
 
 
 == Frequently Asked Questions ==
-= Why not just use a text widget =
+= Why not just use a text widget? =
 Because using pages gives you the visual editor, revisions, short codes, easier management and numerous other benefits.
+
+= What's so important about shortcodes? =
+Shortcodes are increasingly important in WordPress and are used to output certain types of content, such as galleries and video, but also by a lot of plugins which don't have widget functionality but which could effectively be widgetised by using this plugin.
+
+= What does removing from wp_list_pages mean? =
+That's the name of a WordPress function that lists all pages in your blog.  It's used by theme developers to build menus and navigation.  Our plugin can remove a page from this list, but it can't remove a page from navigation that's built using an alternative method - such as the new WP 3.0 menu builder, for example.
+
+= I used this plugin to output a video in my sidebar, but it doesn't fit the space! = 
+Make sure that any content you place in a page to be output in the sidebar is small enough to fit in the sidebar - you may need to resize images and video embeds expressly for this purpose.
+
+= I'm outputting from a plugin using a shortcode, but it looks wrong! =
+Sometimes a plugin can't output items in a space as small as most widget areas or sidebars, so in this case you may need to restyle the plugin's output, or try a different plugin.  There's only so much we can do here.  Sorry!
+
+= My theme's gone all screwy.  Help! =
+A very small number of themes can't handle the output from this plugin very well.  Try the option to add a clear block at the end of your content - that may help in some cases.
+
 
 == Screenshots ==
 
 == Upgrade Notice ==
 
+= 1.0.3 =
+Corrections to readme file and description, fixes two links. [DC]
+
 = 1.0.2 =
-Added an option to show the widget in the sidebar even if you're on the page selected to show in the widget. Made the widget title, as showing in the widget admin, a little more useful.
+Added an option to show the widget in the sidebar even if you're on the page selected to show in the widget. Made the widget title, as showing in the widget admin, a little more useful. [JRW]
 
 = 1.0.1=
-Extra option added to show the widget even when viewing the page selected to show in the widget. Sorted out the widget title as shown in the sidebar admin.
+Extra option added to show the widget even when viewing the page selected to show in the widget. Sorted out the widget title as shown in the sidebar admin. [JRW]
 
 = 1.0.1=
-If you're having problems with floated content overflowing other items then upgrade to this and tick the option to have the clear block on. Otherwise this change isn't critical.
+If you're having problems with floated content overflowing other items then upgrade to this and tick the option to have the clear block on. Otherwise this change isn't critical. [JRW]
 
 = 1.0.0 =
-If you have an older version of this I'd recommend you upgrade.
+If you have an older version of this I'd recommend you upgrade. [JRW]

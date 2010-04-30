@@ -2,14 +2,15 @@
 /*
  Plugin Name: Spectacu.la Page Widget
  Plugin URI: http://spectacu.la
- Description: Show the content of a selected page in a widget. Gives you control over title behaviour and the page's visibility elsewhere in Wordpress.
- Version: 1.0.2
+ Description: Show the content of a selected page in a widget. Also gives you control over title behaviour and the page's visibility elsewhere in Wordpress.
+ Version: 1.0.3
  Author: James R Whitehead of Spectacu.la
  Author URI: http://www.interconnectit.com
 
  Release notes: 1.0.0 Initial release
 				1.0.1 Added an option to include a clear block at the end of the content. Helpful when you have a page with some floated elements in it and quite short content.
 				1.0.2 Tidied up the widget display name in the widget admin page. Also got rid of the unneeded word "widget" from the widget. Added option to show the widget even when viewing the page that's set to show in the widget.
+				1.0.3 Edited readme tag and descriptions.
 */
 
 define ('SPEC_PAGEWIDGET_VER', 2.8);
