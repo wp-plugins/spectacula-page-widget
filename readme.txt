@@ -48,6 +48,9 @@ If you create a translation and you'd like your language file included with the 
 
 == Changelog ==
 
+= 1.0.6 =
+*	Found a problem with some of my logic that resulted in the widget not showing up when it would otherwise be expected to. Fixed it.
+
 = 1.0.5 =
 *	Very minor change to bypass a problem I had where a page_id is passed to register_sidebar as part of another plug-in I'm working on and thus interrupts my page_id for this plug-in.
 
@@ -92,6 +95,9 @@ A very small number of themes can't handle the output from this plugin very well
 == Screenshots ==
 
 == Upgrade Notice ==
+
+= 1.0.6 =
+Found a problem with some of my logic that resulted in the widget not showing up when it would otherwise be expected to. Fixed it. [JRW]
 
 = 1.0.5 =
 Very minor change to bypass a problem I had where a page_id is passed to register_sidebar as part of another plug-in I'm working on and thus interrupts my page_id for this plug-in. [JRW]
