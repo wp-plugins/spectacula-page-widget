@@ -49,7 +49,7 @@ If you create a translation and you'd like your language file included with the 
 == Changelog ==
 
 = 1.0.5 =
-*	Very minor change to bypass a problem I had where a page_id is passed to register_sidebar as part of another plug-in I'm working on and thus interupts my page_id for this plug-in.
+*	Very minor change to bypass a problem I had where a page_id is passed to register_sidebar as part of another plug-in I'm working on and thus interrupts my page_id for this plug-in.
 
 = 1.0.4 =
 *	Fixed issue with wp_list_pages_excludes not respecting other plug-ins wishes.
@@ -94,7 +94,7 @@ A very small number of themes can't handle the output from this plugin very well
 == Upgrade Notice ==
 
 = 1.0.5 =
-Very minor change to bypass a problem I had where a page_id is passed to register_sidebar as part of another plug-in I'm working on and thus interupts my page_id for this plug-in. [JRW]
+Very minor change to bypass a problem I had where a page_id is passed to register_sidebar as part of another plug-in I'm working on and thus interrupts my page_id for this plug-in. [JRW]
 This problem won't show itself under most situations, no really need to upgrade unless you're a bit bored.
 
 = 1.0.4 =
