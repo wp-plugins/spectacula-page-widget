@@ -4,7 +4,7 @@ Donate link: https://spectacu.la/signup/signup.php
 Tags: widget, page, sidebar, plugin
 Requires at least: 2.8.0
 Tested up to: 2.9.2
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 
 Widget that lets you output the content of a page in any place that'll accept a widget and allows you to hide said page from navigation (wp_list_pages).
 
@@ -48,6 +48,9 @@ If you create a translation and you'd like your language file included with the 
 
 == Changelog ==
 
+= 1.0.5 =
+*	Very minor change to bypass a problem I had where a page_id is passed to register_sidebar as part of another plug-in I'm working on and thus interupts my page_id for this plug-in.
+
 = 1.0.4 =
 *	Fixed issue with wp_list_pages_excludes not respecting other plug-ins wishes.
 
@@ -76,7 +79,7 @@ Shortcodes are increasingly important in WordPress and are used to output certai
 = What does removing from wp_list_pages mean? =
 That's the name of a WordPress function that lists all pages in your blog.  It's used by theme developers to build menus and navigation.  Our plugin can remove a page from this list, but it can't remove a page from navigation that's built using an alternative method - such as the new WP 3.0 menu builder, for example.
 
-= I used this plugin to output a video in my sidebar, but it doesn't fit the space! = 
+= I used this plugin to output a video in my sidebar, but it doesn't fit the space! =
 Make sure that any content you place in a page to be output in the sidebar is small enough to fit in the sidebar - you may need to resize images and video embeds expressly for this purpose.
 
 = I'm outputting from a plugin using a shortcode, but it looks wrong! =
@@ -89,6 +92,10 @@ A very small number of themes can't handle the output from this plugin very well
 == Screenshots ==
 
 == Upgrade Notice ==
+
+= 1.0.5 =
+Very minor change to bypass a problem I had where a page_id is passed to register_sidebar as part of another plug-in I'm working on and thus interupts my page_id for this plug-in. [JRW]
+This problem won't show itself under most situations, no really need to upgrade unless you're a bit bored.
 
 = 1.0.4 =
 Fixed issue with wp_list_pages_excludes not respecting other plug-ins wishes. [JRW]

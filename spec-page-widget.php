@@ -3,7 +3,7 @@
  Plugin Name: Spectacu.la Page Widget
  Plugin URI: http://spectacu.la
  Description: Show the content of a selected page in a widget. Also gives you control over title behaviour and the page's visibility elsewhere in Wordpress.
- Version: 1.0.4
+ Version: 1.0.5
  Author: James R Whitehead of Spectacu.la
  Author URI: http://www.interconnectit.com
 
@@ -12,6 +12,7 @@
 				1.0.2 Tidied up the widget display name in the widget admin page. Also got rid of the unneeded word "widget" from the widget. Added option to show the widget even when viewing the page that's set to show in the widget.
 				1.0.3 Edited readme tag and descriptions.
 				1.0.4 Fixed issue with wp_list_pages_excludes not respecting other plug-ins wishes.
+				1.0.5 Very minor change to bypass a problem I had where a page_id is passed to register_sidebar as part of another plug-in I'm working on and thus interupts my page_id for this plug-in.
 */
 
 define ('SPEC_PAGEWIDGET_VER', 2.8);
@@ -44,8 +45,8 @@ if (!class_exists('spec_page_widget')) {
 
 		function widget($args, $instance ) {
 			global $post;
-			extract($args, EXTR_SKIP);
 			extract((array)$instance, EXTR_SKIP);
+			extract($args, EXTR_SKIP);
 
 			// Check that the page chosen exists.
 			if (in_array($page_id, $this->page_ids) && ($post->ID != $page_id && !$self_show)){
