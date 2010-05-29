@@ -4,7 +4,7 @@ Donate link: https://spectacu.la/signup/signup.php
 Tags: widget, page, sidebar, plugin
 Requires at least: 2.8.0
 Tested up to: 2.9.2
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 
 Widget that lets you output the content of a page in any place that'll accept a widget and allows you to hide said page from navigation (wp_list_pages).
 
