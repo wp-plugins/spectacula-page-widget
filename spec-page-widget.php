@@ -258,7 +258,7 @@ if (!class_exists('spec_page_widget')) {
 		function clean_classes( $classes = '' ) {
 			$tmp = array();
 			foreach( ( array ) explode( ' ', $classes ) as $class ) {
-				$tmp[] = sanitize_html_class( trim( $class ) );
+				$tmp[] = preg_replace( array( '/^[^a-zA-Z]+/i', '/[^a-zA-Z0-9-_]*?/i', '/[^a-zA-Z0-9]+$/i' ), '', trim( $class ) );
 			}
 			$classes = implode( ' ', $tmp );
 			return $classes;
