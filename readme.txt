@@ -3,7 +3,7 @@ Contributors: interconnectit, spectacula
 Donate link: https://spectacu.la/signup/signup.php
 Tags: widget, page, sidebar, plugin
 Requires at least: 2.8.0
-Tested up to: 2.9.2
+Tested up to: 3.0
 Stable tag: 1.0.6
 
 Widget that lets you output the content of a page in any place that'll accept a widget and allows you to hide said page from navigation (wp_list_pages).
@@ -47,6 +47,9 @@ If you create a translation and you'd like your language file included with the 
 5.  Finally hit save.
 
 == Changelog ==
+
+= 1.0.7 =
+*	Added an option to the widget interface to allow you to add extra CSS classes to the widget.
 
 = 1.0.6 =
 *	Found a problem with some of my logic that resulted in the widget not showing up when it would otherwise be expected to. Fixed it.
@@ -95,6 +98,9 @@ A very small number of themes can't handle the output from this plugin very well
 == Screenshots ==
 
 == Upgrade Notice ==
+
+= 1.0.7 =
+Added an option to the widget interface to allow you to add extra CSS classes to the widget. [JRW]
 
 = 1.0.6 =
 Found a problem with some of my logic that resulted in the widget not showing up when it would otherwise be expected to. Fixed it. [JRW]

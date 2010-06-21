@@ -3,7 +3,7 @@
  Plugin Name: Spectacu.la Page Widget
  Plugin URI: http://spectacu.la
  Description: Show the content of a selected page in a widget. Also gives you control over title behaviour and the page's visibility elsewhere in Wordpress.
- Version: 1.0.6
+ Version: 1.0.7
  Author: James R Whitehead of Spectacu.la
  Author URI: http://www.interconnectit.com
 
@@ -14,6 +14,7 @@
 				1.0.4 Fixed issue with wp_list_pages_excludes not respecting other plug-ins wishes.
 				1.0.5 Very minor change to bypass a problem I had where a page_id is passed to register_sidebar as part of another plug-in I'm working on and thus interrupts my page_id for this plug-in.
 				1.0.6 Found a problem with some of my logic that resulted in the widget not showing up when it would otherwise be expected to. Fixed it.
+				1.0.7 Added an option to the widget interface to allow you to add extra CSS classes to the widget.
 */
 
 define ('SPEC_PAGEWIDGET_VER', 2.8);
@@ -23,7 +24,17 @@ define ('SPEC_PAGEWIDGET_OPT', 'specpagewidgets');
 if (!class_exists('spec_page_widget')) {
 	class spec_page_widget extends WP_Widget {
 
-		var $defaults = array('title_toggle' => true, 'link_toggle' => true, 'hide_toggle' => false, 'excerpt_toggle' => false, 'page_id' => 0, 'title' => '', 'clear_toggle' => false, 'self_show' => false);
+		var $defaults = array(
+							  'title_toggle' => true,
+							  'link_toggle' => true,
+							  'hide_toggle' => false,
+							  'excerpt_toggle' => false,
+							  'page_id' => 0,
+							  'title' => '',
+							  'clear_toggle' => false,
+							  'self_show' => false,
+							  'class' => ''
+							);
 
 		/*
 		 constructor.
@@ -48,6 +59,9 @@ if (!class_exists('spec_page_widget')) {
 			global $post;
 			extract((array)$instance, EXTR_SKIP);
 			extract($args, EXTR_SKIP);
+
+			if ( ! empty( $class ) )
+				$before_widget = $this->add_class_attrib( $before_widget, $this->clean_classes( $class ) );
 
 			// Check that the page chosen exists.
 			if (in_array($page_id, $this->page_ids) && ( ( ( $post->ID == $page_id ) && $self_show ) ) || ( $post->ID != $page_id ) ) {
@@ -97,6 +111,7 @@ if (!class_exists('spec_page_widget')) {
 			$output['page_id'] = in_array(intval($new_instance['page_id']), $this->page_ids) ? intval($new_instance['page_id']) : 0;
 			$output['alt_title'] =  $new_instance['alt_title'] != '' ? $new_instance['alt_title'] : '';
 			$output['clear_toggle'] = intval($new_instance['clear_toggle']) == 1 ? true : false;
+			$output[ 'class' ] = $this->clean_classes( $new_instance[ 'class' ] );
 
 			return $output;
 		}
@@ -123,7 +138,6 @@ if (!class_exists('spec_page_widget')) {
 
 				</select>
 			</p>
-
 
 			<p>
 				<label for="<?php echo $this->get_field_id('title_toggle'); ?>"><?php _e('Show title:', SPEC_PAGEWIDGET_DOM); ?></label>
@@ -173,6 +187,11 @@ if (!class_exists('spec_page_widget')) {
 				<input type="checkbox"<?php echo $self_show ? ' checked="checked"' : '' ; ?> id="<?php echo $this->get_field_id('self_show'); ?>" name="<?php echo $this->get_field_name('self_show'); ?>" value="1"/>
 			</p>
 
+			<p>
+				<label for="<?php echo $this->get_field_id('class'); ?>"><?php _e('CSS Classes:', SPEC_PAGEWIDGET_DOM); ?></label>
+				<input class="widefat" id="<?php echo $this->get_field_id('class'); ?>" name="<?php echo $this->get_field_name('class'); ?>" type="text" value="<?php echo $class; ?>" />
+			</p>
+
 			<hr/>
 			<p>
 				<?php
@@ -183,6 +202,7 @@ if (!class_exists('spec_page_widget')) {
 				<label<?php echo $disabled ? ' style="color:#ccc"' : '';?> for="<?php echo $this->get_field_id('hide_toggle'); ?>"><?php _e('Exclude page from wp_list_pages:', SPEC_PAGEWIDGET_DOM); ?></label>
 				<input type="checkbox"<?php echo $hide_toggle ? ' checked="checked"' : '' ; echo $disabled;?> id="<?php echo $this->get_field_id('hide_toggle'); ?>" name="<?php echo $this->get_field_name('hide_toggle'); ?>" value="1"/>
 			</p>
+
 			<?php
 		}
 
@@ -227,6 +247,21 @@ if (!class_exists('spec_page_widget')) {
 
 			$this->exclusions = $output;
 			return $output;
+		}
+
+		function add_class_attrib( $tag, $class ) {
+			$output = preg_replace( '/(^[^<]*?<\w+\s?[^>]*?)(?:class=[\'"])?([^\'"]*?)[\'"]?(>.*)/is', '$1 class="' . strtolower( $class ) . ' $2"$3', $tag );
+			$output = preg_replace( '/\s+/is', ' ', $output );
+			return $output;
+		}
+
+		function clean_classes( $classes = '' ) {
+			$tmp = array();
+			foreach( ( array ) explode( ' ', $classes ) as $class ) {
+				$tmp[] = sanitize_html_class( trim( $class ) );
+			}
+			$classes = implode( ' ', $tmp );
+			return $classes;
 		}
 	}
 
