@@ -91,7 +91,7 @@ if ( ! class_exists( 'spec_page_widget' ) ) {
 
 				echo $before_widget;
 
-				echo $title		? $before_title . $title . $after_title : '';
+				echo ! empty( $title ) ? $before_title . $title . $after_title : '';
 				echo $content . $clear;
 
 				echo $after_widget;
